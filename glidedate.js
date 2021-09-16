@@ -52,6 +52,15 @@ function isValidDate(d) {
 
 // Conversion string Date or date by glide column to JS Date
 function glide2Date(dt, dateformat) {
+  dt = dt.trim();
+
+  // Test Date is ISO
+  const re = new RegExp(
+    /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/
+  );
+  if (re.exec(dt)) return new Date(dt);
+
+  // Local Date
   let num = defDate[dateformat.toLowerCase()];
 
   let ne = dt.split(defDate.format[num].separator);
