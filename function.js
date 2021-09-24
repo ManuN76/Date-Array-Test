@@ -49,13 +49,16 @@ window.function = function (array, arrayformat) {
   arrayformat = arrayformat.value ?? "";
   if (arrayformat != "") glideDateTimeFormat = arrayformat;
 
+  arrDate = glide2Date(arrDate, glideDateTimeFormat);
+
+  /*
   // !!!!!!! TEST converting Array String with Date
   if (arrDate != undefined) {
     arrDate = arrDate.map((dt) => {
       return glide2Date(dt, glideDateTimeFormat);
     });
   }
-
+*/
   // !!!!!!!! RETURN ARRAY
   return arrDate;
 };
